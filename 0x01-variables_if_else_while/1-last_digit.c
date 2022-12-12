@@ -8,7 +8,9 @@
 
 /* betty style doc for function main goes there */
 
-int main(void)
+int main(beatiful)
+
+int Description:'beatiful'
 
 {
 
@@ -22,4 +24,5 @@ int main(void)
 
 					/* your code goes there */
 					return (0);
+
 }
