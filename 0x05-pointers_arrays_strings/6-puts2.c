@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * rev_string - function that
- * @s: input to reverse
- * Return: string and in
+ * rev_string - function
+ * @s: input
+ * Return: string
  */
 void rev_string(char *s)
 {
@@ -14,8 +14,7 @@ void rev_string(char *s)
 	while (s[fcounter] != '\0')
 		fcounter++;
 
-	for (i = 0; i < fcounter; i++);
-
+	for (i = 0; i < fcounter; i++)
 	{
 		fcounter--;
 		rev = s[i];
