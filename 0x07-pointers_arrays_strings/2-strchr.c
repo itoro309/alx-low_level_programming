@@ -1,18 +1,21 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
- * _memcpy - Entry Point
- * @dest: input
- * @src: input
- * @n: input
+ * _strchr - Entry Point
+ * @s: input
+ * @c: input
  * Return: Always 0 (Success)
  */
-char *_memcpy(char *dest, char *src, unsigned int n)
+char *_strchr(char *s, char c)
 {
-	unsigned int i;
+	int i;
 
-	for (i = 0; i < n; i++)
-		dest[i] = src[i];
+	for (i = 0; s[i] >= '\0'; i++)
+	{
+		if (s[i] == c)
+			return (s + i);
+	}
 
-	return (dest);
+	return (NULL);
 }
