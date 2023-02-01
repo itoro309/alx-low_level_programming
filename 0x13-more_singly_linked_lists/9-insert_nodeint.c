@@ -10,46 +10,37 @@
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *new_node = NULL;
-	listint_t *previous_node = NULL;
-	unsigned int i = 0;
+	unsigned int i;
+	listint_t *new;
+	listint_t *h;
 
-	new_node->n = n;
-	new_node->next = NULL;
-	while (head != NULL)
+	h = *head;
+
+	if (idx != 0)
 	{
-		if (i == idx)
+		for (i = 0; i < idx - 1 && h != NULL ; i++)
 		{
-			if (i == 0)
-			{
-				new_node->next = *head;
-				*head = new_node;
-					return (new_node);
-			}
-			new_node->next = previous_node->next;
-			previous_node->next = *head;
-			head = &((*head)->next);
-			i++;
-
+			h = h->next;
 		}
-		return (NULL);
-}
-
-/**
- * listint_len - counts the number of node in a linked list
- * @h: head of the list
- *
- * Return: the number of element
- */
-size_t listint_len(const listint_t *h)
-{ const listint_t *cursor = h;
-	size_t count = 0;
-
-	while (cursor != NULL)
-	{
-		count += 1;
-		cursor = cursor->next;
 	}
-	return (count);
-}
+	if (h == NULL && idx != 0)
+		return (NULL);
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+
+	new->n = n;
+
+	if (idx == 0)
+	{
+		new->next = h->next;
+		h->next = new;
+	}
+	else
+	{
+		new->next = h->next;
+		h->next = new;
+	}
+
+	return (new);
 }
